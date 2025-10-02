@@ -7,7 +7,7 @@ class ListItem extends StatelessWidget {
   late final String value;
   late final String image;
   late final MaterialColor color;
-  late final Function handleDelete;
+  late final VoidCallback handleDelete;
 
   ListItem({super.key, required this.number, required this.handleDelete}) {
     List<String> tmp = Utils().resolveImage(number);
@@ -25,7 +25,7 @@ class ListItem extends StatelessWidget {
           title: value,
           color: color,
           image: image,
-          handleDelete: () => handleDelete(number),
+          handleDelete: () => handleDelete(),
         ),
       ),
       child: Container(
