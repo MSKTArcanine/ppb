@@ -7,8 +7,9 @@ class ListItem extends StatelessWidget {
   late final String value;
   late final String image;
   late final MaterialColor color;
+  late final Function handleDelete;
 
-  ListItem({super.key, required this.number}) {
+  ListItem({super.key, required this.number, required this.handleDelete}) {
     List<String> tmp = Utils().resolveImage(number);
     image = tmp[0];
     value = tmp[1];
@@ -20,7 +21,12 @@ class ListItem extends StatelessWidget {
     return GestureDetector(
       onTapUp: (_) => showDialog(
         context: context,
-        builder: (_) => FruitDialog(title: value, color: color, image: image),
+        builder: (_) => FruitDialog(
+          title: value,
+          color: color,
+          image: image,
+          handleDelete: () => handleDelete(number),
+        ),
       ),
       child: Container(
         color: color,

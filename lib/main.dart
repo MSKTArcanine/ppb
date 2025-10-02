@@ -62,6 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _handleDelete(int intrus) {
+    setState(() {
+      _fruits.remove(intrus);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Expanded(child: DynamicList(list: _fruits))],
+        children: [
+          Expanded(
+            child: DynamicList(list: _fruits, handleDelete: _handleDelete),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
