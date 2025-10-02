@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pomme_poire_ananas/fruit_dialog.dart';
 import 'package:pomme_poire_ananas/utils.dart';
 
 class ListItem extends StatelessWidget {
   final int number;
-  late String value;
-  late String image;
-  late MaterialColor color;
+  late final String value;
+  late final String image;
+  late final MaterialColor color;
 
   ListItem({super.key, required this.number}) {
     List<String> tmp = Utils().resolveImage(number);

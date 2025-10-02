@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FruitDialog extends StatelessWidget {
-  late final String title;
-  late final MaterialColor color;
-  late final String image;
-  FruitDialog({
+  final String title;
+  final MaterialColor color;
+  final String image;
+  const FruitDialog({
     super.key,
     required this.title,
     required this.color,
