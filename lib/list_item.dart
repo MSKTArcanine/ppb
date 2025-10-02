@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pomme_poire_ananas/fruit_dialog.dart';
 import 'package:pomme_poire_ananas/utils.dart';
 
 class ListItem extends StatelessWidget {
   final int number;
   late String value;
   late String image;
+  late MaterialColor color;
 
   ListItem({super.key, required this.number}) {
     List<String> tmp = Utils().resolveImage(number);
     image = tmp[0];
     value = tmp[1];
+    color = Utils().pairImpairColor[number % 2 == 0]!;
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapUp: (_) => print('caca'),
+      onTapUp: (_) => showDialog(
+        context: context,
+        builder: (_) => FruitDialog(title: value, color: color, image: image),
+      ),
       child: Container(
-        color: Utils().pairImpairColor[number % 2 == 0],
+        color: color,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
