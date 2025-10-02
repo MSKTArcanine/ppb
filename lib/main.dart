@@ -31,20 +31,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final List<int> _list;
+  late final List<int> _fruits;
   late int _counter;
 
   @override
   void initState() {
     super.initState();
     _counter = 0;
-    _list = [_counter];
+    _fruits = [_counter];
   }
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-      _list.add(_counter);
+      _fruits.add(_counter);
     });
   }
 
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Expanded(child: DynamicList(list: _list))],
+        children: [Expanded(child: DynamicList(list: _fruits))],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
