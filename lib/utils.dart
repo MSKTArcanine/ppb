@@ -35,14 +35,22 @@ class Utils {
     }
   }
 
-  String resolveImage(int number) {
+  List<String> resolveImage(int number) {
     late Fruits res;
+    late String value;
     if (isPremier(number)) {
+      value = "premier";
       res = Fruits.ananas;
     } else {
-      res = (number % 2 == 0) ? Fruits.poire : Fruits.pomme;
+      if (number % 2 == 0) {
+        res = Fruits.poire;
+        value = "pair";
+      } else {
+        res = Fruits.pomme;
+        value = "impair";
+      }
     }
-    return 'images/${res.value}-min.png';
+    return ['images/${res.value}-min.png', value];
   }
 
   bool isPremier(int number) {

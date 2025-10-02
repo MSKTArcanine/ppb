@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late final List<int> _fruits;
   late int _counter;
   late List<Color> _colors;
+  late String _pipValue;
 
   @override
   void initState() {
@@ -41,6 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
     _counter = 0;
     _fruits = [_counter];
     _colors = Utils().getColorButton();
+    _pipValue = Utils().isPremier(_counter)
+        ? 'Premier'
+        : (_counter % 2 == 0)
+        ? 'Pair'
+        : 'Impair';
   }
 
   void _incrementCounter() {
@@ -48,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
       _fruits.add(_counter);
       _colors = Utils().getColorButton();
+      _pipValue = Utils().isPremier(_counter)
+          ? 'Premier'
+          : (_counter % 2 == 0)
+          ? 'Pair'
+          : 'Impair';
     });
   }
 
@@ -56,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text('$_counter - $_pipValue'),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
