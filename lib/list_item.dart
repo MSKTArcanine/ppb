@@ -11,8 +11,12 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Utils().pairImpairColor[number % 2 == 0],
-      child: Center(
-        child: Text('$number', style: TextStyle(color: Colors.white)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('$number', style: TextStyle(color: Colors.white)),
+          Image.asset(Utils().resolveImage(number), width: 20, height: 20),
+        ],
       ),
     );
   }
